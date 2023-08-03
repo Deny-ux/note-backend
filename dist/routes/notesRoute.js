@@ -6,10 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const notesController_1 = require("../services/notesController");
-router.post("/", notesController_1.createNote);
-router.delete("/:id", notesController_1.deleteNote);
-router.patch("/:id", notesController_1.updateNote);
-router.get("/:id", notesController_1.getSingleNote);
-router.get("/", notesController_1.getAllNotes);
-router.get("/stats", notesController_1.getStats);
+router.post("/", notesController_1.createNoteController);
+router.get("/", notesController_1.getAllNotesController);
+router.get("/stats", notesController_1.getStatsController);
+router.delete("/:id", notesController_1.deleteNoteController);
+router.patch("/:id", notesController_1.updateNoteController);
+router.get("/:id", notesController_1.getSingleNoteController);
 exports.default = router;
+//# sourceMappingURL=notesRoute.js.map

@@ -5,16 +5,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mockData_1 = require("./repositories/mockData");
+require("express-async-errors");
+// const errorHandlerMiddleware = require("./middleware/error-handler");
+const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
+const notFound_1 = __importDefault(require("./middleware/notFound"));
+// routes
 const notesRoute_1 = __importDefault(require("./routes/notesRoute"));
 const port = 3000;
 const app = (0, express_1.default)();
-let notes = [];
-// use mocked data
-notes = [...mockData_1.notes];
+// export let notes: SingleNote[] = [];
+// notes array accessible everywhere in the app
+app.locals.notes = [...mockData_1.notes];
 // middleware
 app.use(express_1.default.json());
 // routes
 app.use("/notes/", notesRoute_1.default);
+app.use(notFound_1.default);
+app.use(errorHandler_1.default);
 // start server
 try {
     app.listen(port, () => {
@@ -24,3 +31,4 @@ try {
 catch (error) {
     console.log(error);
 }
+//# sourceMappingURL=index.js.map
