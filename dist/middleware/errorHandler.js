@@ -8,4 +8,3 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         .json({ data: { msg: err.message } });
 };
 exports.default = errorHandlerMiddleware;
-//# sourceMappingURL=errorHandler.js.map

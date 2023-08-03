@@ -8,4 +8,3 @@ function createStringDate(date) {
     return `${day}/${month}/${year}`;
 }
 exports.createStringDate = createStringDate;
-//# sourceMappingURL=dates.js.map

@@ -31,4 +31,3 @@ try {
 catch (error) {
     console.log(error);
 }
-//# sourceMappingURL=index.js.map

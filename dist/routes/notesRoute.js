@@ -13,4 +13,3 @@ router.delete("/:id", notesController_1.deleteNoteController);
 router.patch("/:id", notesController_1.updateNoteController);
 router.get("/:id", notesController_1.getSingleNoteController);
 exports.default = router;
-//# sourceMappingURL=notesRoute.js.map
