@@ -61,7 +61,8 @@ export const updateNoteController = async (req: Request, res: Response) => {
       foundNote.category = category;
     }
     if (isArchived) {
-      if (typeof isArchived === "boolean") {
+      console.log(isArchived);
+      if (typeof isArchived !== "boolean") {
         throw new Error("isArchived should be either true or false");
       }
       foundNote.isArchived = isArchived;
