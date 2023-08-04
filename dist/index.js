@@ -6,14 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mockData_1 = require("./repositories/mockData");
 require("express-async-errors");
-// const errorHandlerMiddleware = require("./middleware/error-handler");
+// import custom middleware
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 const notFound_1 = __importDefault(require("./middleware/notFound"));
 // routes
 const notesRoute_1 = __importDefault(require("./routes/notesRoute"));
 const port = 3000;
 const app = (0, express_1.default)();
-// export let notes: SingleNote[] = [];
 // notes array accessible everywhere in the app
 app.locals.notes = [...mockData_1.notes];
 // middleware

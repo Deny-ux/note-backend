@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isValidNoteId = exports.isValidNewNote = void 0;
 const validCategory_1 = require("./validCategory");
-function isValidNewNote(name, category, content) {
+function isValidNewNote(name, content, category) {
     if (!name || !content || !category) {
         throw new Error("name, content and category fields are mandatory!!!");
     }
@@ -12,6 +12,9 @@ function isValidNewNote(name, category, content) {
     if (typeof content !== "string") {
         throw new Error("content of the note should be type of string");
     }
+    console.log(1111111111);
+    console.log(category);
+    console.log((0, validCategory_1.isValidCategory)(category));
     if (!(0, validCategory_1.isValidCategory)(category)) {
         throw new Error("Provided category is not valid");
     }

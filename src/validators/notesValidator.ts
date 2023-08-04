@@ -3,8 +3,8 @@ import { CategoryType } from "../types/noteTypes";
 
 export function isValidNewNote(
   name: string,
-  category: CategoryType,
-  content: string
+  content: string,
+  category: CategoryType
 ) {
   if (!name || !content || !category) {
     throw new Error("name, content and category fields are mandatory!!!");
@@ -15,6 +15,7 @@ export function isValidNewNote(
   if (typeof content !== "string") {
     throw new Error("content of the note should be type of string");
   }
+
   if (!isValidCategory(category)) {
     throw new Error("Provided category is not valid");
   }

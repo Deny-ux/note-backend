@@ -17,18 +17,6 @@ const validCategory_1 = require("../validators/validCategory");
 const notesValidator_1 = require("../validators/notesValidator");
 const createNoteController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { name, content, category } = req.body;
-    // if (!name || !content || !category) {
-    //   throw new Error("name, content and category fields are mandatory!!!");
-    // }
-    // if (typeof name !== "string") {
-    //   throw new Error("name of the note should be type of string");
-    // }
-    // if (typeof content !== "string") {
-    //   throw new Error("content of the note should be type of string");
-    // }
-    // if (!isValidCategory(category)) {
-    //   throw new Error("Provided category is not valid");
-    // }
     if ((0, notesValidator_1.isValidNewNote)(name, content, category)) {
         const id = (0, uuid_1.v4)();
         const createdAt = (0, dates_1.createStringDate)(new Date());

@@ -8,18 +8,6 @@ import { isValidNewNote, isValidNoteId } from "../validators/notesValidator";
 
 export const createNoteController = async (req: Request, res: Response) => {
   const { name, content, category } = req.body;
-  // if (!name || !content || !category) {
-  //   throw new Error("name, content and category fields are mandatory!!!");
-  // }
-  // if (typeof name !== "string") {
-  //   throw new Error("name of the note should be type of string");
-  // }
-  // if (typeof content !== "string") {
-  //   throw new Error("content of the note should be type of string");
-  // }
-  // if (!isValidCategory(category)) {
-  //   throw new Error("Provided category is not valid");
-  // }
   if (isValidNewNote(name, content, category)) {
     const id = uuidv4();
     const createdAt = createStringDate(new Date());
