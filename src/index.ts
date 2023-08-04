@@ -1,20 +1,28 @@
-import express, { Express, Response, Request } from "express";
+import express from "express";
 import { notes as mockedNotes } from "./repositories/mockData";
-import { SingleNote } from "./types/noteTypes";
+require("express-async-errors");
+
+// import custom middleware
+import errorHandlerMiddleware from "./middleware/errorHandler";
+import notFoundMiddleware from "./middleware/notFound";
+
+// routes
 import notesRouter from "./routes/notesRoute";
 
 const port = 3000;
 const app = express();
 
-let notes: SingleNote[] = [];
-// use mocked data
-notes = [...mockedNotes];
+// notes array accessible everywhere in the app
+app.locals.notes = [...mockedNotes];
 
 // middleware
 app.use(express.json());
 
 // routes
 app.use("/notes/", notesRouter);
+
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 // start server
 try {

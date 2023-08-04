@@ -1,5 +1,7 @@
 export type CreationDate = `${number}/${number}/${number}`;
-export type CategoryType = "Task" | "Idea" | "Random Thought";
+
+export const categories = ["Task", "Idea", "Random Thought"] as const;
+export type CategoryType = (typeof categories)[number];
 
 export interface SingleNote {
   id: string;
