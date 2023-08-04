@@ -12,9 +12,6 @@ function isValidNewNote(name, content, category) {
     if (typeof content !== "string") {
         throw new Error("content of the note should be type of string");
     }
-    console.log(1111111111);
-    console.log(category);
-    console.log((0, validCategory_1.isValidCategory)(category));
     if (!(0, validCategory_1.isValidCategory)(category)) {
         throw new Error("Provided category is not valid");
     }

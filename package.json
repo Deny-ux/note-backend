@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build and start": "rimraf dist && tsc && node dist/index.js",
     "build": "rimraf dist && tsc",
     "start": "node dist/index.js",
-    "dev1": "nodemon dist/index.js",
-    "dev2": "npx tsc -w",
     "serve": "concurrently \"npx tsc -w\" \"nodemon dist/index.js\""
   },
   "keywords": [],
